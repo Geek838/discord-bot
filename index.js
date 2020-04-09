@@ -5,19 +5,25 @@ const token = ''; // your token goes here
 
 const client = new Discord.Client();
 
-const weekday = new Array(7);
-weekday[0] = "monday";
-weekday[1] = "tuesday";
-weekday[2] = "wednesday";
-weekday[3] = "thursday";
-weekday[4] = "friday";
-weekday[5] = "saturday";
-weekday[6] = "sunday";
 
-const date = new Date();
-const currDay = date.getDay();
-const today = weekday[currDay];
 
+
+function getDay() {
+    const weekday = new Array(7);
+    weekday[0] = "monday";
+    weekday[1] = "tuesday";
+    weekday[2] = "wednesday";
+    weekday[3] = "thursday";
+    weekday[4] = "friday";
+    weekday[5] = "saturday";
+    weekday[6] = "sunday";
+
+    let date = new Date();
+    let currDay = date.getDay();
+    let today = weekday[currDay];
+
+    return today
+}
 
 client.once('ready', () => {
     console.log('connected');
@@ -25,6 +31,7 @@ client.once('ready', () => {
 
 client.on('message', message => {
     if (message.content === '!anime') {
+        let today = getDay();
         fetch(`https://api.jikan.moe/v3/schedule/${today}`)
             .then((respose) => {
                 return respose.json();
