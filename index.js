@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const fetch = require('node-fetch');
 const mangaScheduler = require('./app/manga/mangaScheduler');
 const config = require('./app/config/config');
+const Dao = require('./app/dao/dao');
 
 
 const client = new Discord.Client();
@@ -49,10 +50,9 @@ client.on('message', message => {
                 message.channel.send(data.pictures[0].large);
             })
     }
-})
+});
 
-console.log('22222222')
+Dao.getInstance();
 mangaScheduler.start();
-console.log('sssssss')
 
 client.login(config.discordBotToken);
