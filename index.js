@@ -1,6 +1,6 @@
 const Discord = require('discord.js')
 const fetch = require('node-fetch');
-const token = 'Njk3MDIyMDY1OTA3MjA0MTk2.Xo7wFQ.MPm7lMxzqA5e7shM-C-gEAxS73M'; // your token goes here
+const token = ''; // your token goes here
 
 
 const client = new Discord.Client();
