@@ -1,12 +1,10 @@
-const Discord = require('discord.js')
+const Discord = require('discord.js');
 const fetch = require('node-fetch');
-const token = ''; // your token goes here
+const mangaScheduler = require('./app/manga/mangaScheduler');
+const config = require('./app/config/config');
 
 
 const client = new Discord.Client();
-
-
-
 
 function getDay() {
     const weekday = new Array(7);
@@ -53,4 +51,8 @@ client.on('message', message => {
     }
 })
 
-client.login(token)
+console.log('22222222')
+mangaScheduler.start();
+console.log('sssssss')
+
+client.login(config.discordBotToken);
